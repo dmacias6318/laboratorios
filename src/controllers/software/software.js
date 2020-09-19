@@ -34,18 +34,10 @@ Software.registrar= async (req, res) => {
         
       if (result) {
         console.log("Software creado");
-        const dataUser = await pool.query(
-          "SELECT * FROM software WHERE categoria= $1 ",
-          [categoria]
-        );
+        
         res.status(200).json({ 
           sms: "ok",
-          mensaje:"Software registrado con exito",
-          categoria:dataUser.rows[0].categoria,
-          nombre:dataUser.rows[0].nombre,
-          version:dataUser.rows[0].version,
-          licencia:dataUser.rows[0].licencia,
-          equipoid:dataUser.rows[0].equipoid
+          mensaje:"Software registrado con exito"
         });
       } else {
         console.log("Software no creado");

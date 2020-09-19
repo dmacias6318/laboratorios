@@ -157,16 +157,13 @@ Equipos.data= async (req, res) => {
    
     try{
         const result = await pool.query(
-            "SELECT * FROM equipos WHERE equipoid= $1 ",
+            "SELECT * FROM equipos WHERE laboratorioid= $1 ",
             [req.params.id]
             );
 
-            if (result.rows.length > 0) {
                 // console.log(result);
-                 res.json({ sms:"ok",result:result.rows });
-               } else {
-                 res.json({ sms: "err" });
-               }
+                 res.json({result:result.rows });
+            
     }catch(e){
        console.log(e)
     }

@@ -32,14 +32,14 @@ module.exports = (app, autorizacion) => {
     router.post("/api/editarLabr",Laboratorios.editar)
     router.post("/api/eliminarLabr",Laboratorios.eliminar)
     router.get("/api/dataLabr/:id",Laboratorios.data)
-    router.post("/api/alldataLabr",Laboratorios.allData)
+    router.get("/api/alldataLabr",Laboratorios.allData)
 
     //Equipos
     router.post("/api/createEqui",Equipos.registrar)
     router.post("/api/editarEqui",Equipos.editar)
     router.post("/api/eliminarEqui",Equipos.eliminar)
     router.get("/api/dataEqui/:id",Equipos.data)
-    router.post("/api/alldataEqui",Equipos.allData)
+    router.get("/api/alldataEqui",Equipos.allData)
 
     //Hardware
     router.post("/api/createHard",Hardware.registrar)

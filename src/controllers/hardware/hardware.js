@@ -32,16 +32,9 @@ Hardware.registrar= async (req, res) => {
         
       if (result) {
         console.log("Hardware creado");
-        const dataUser = await pool.query(
-          "SELECT * FROM hardware WHERE nombre= $1 ",
-          [nombre]
-        );
         res.status(200).json({ 
           sms: "ok",
           mensaje:"Hardware registrado con exito",
-          nombre:dataUser.rows[0].nombre,
-          detalle:dataUser.rows[0].detalle,
-          equipoid:dataUser.rows[0].equipoid
         });
       } else {
         console.log("Hardware no creado");

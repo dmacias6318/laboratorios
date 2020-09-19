@@ -10,7 +10,7 @@ const Laboratorios= {};
 
 
 Laboratorios.registrar= async (req, res) => {
-    const { nombre,usuarioid } = req.body;
+    const { nombre } = req.body;
     console.log(req.body)
     try{
         const verificaLab = await pool.query("SELECT * FROM laboratorios WHERE nombre=$1",[nombre]
@@ -20,29 +20,23 @@ Laboratorios.registrar= async (req, res) => {
       res.json({ sms: "duplicado" });
     } else {
         const result = await pool.query(
-            `insert into laboratorios (nombre,usuarioid) values ($1,$2)`,
+            `insert into laboratorios (nombre) values ($1)`,
             [
-              nombre,
-              usuarioid
+              nombre
             ]
           );
         
       if (result) {
-        console.log("laboratoriocreado");
-        const dataUser = await pool.query(
-          "SELECT * FROM laboratorios WHERE laboratorios.nombre= $1 ",
-          [nombre]
-        );
+     
+        
         res.status(200).json({ 
           sms: "ok",
           mensaje:"Laboratorio registrado con exito",
-          nombre:dataUser.rows[0].nombre,
-          usuarioid:dataUser.rows[0].usuarioid
         });
       } else {
         console.log("Laboratorio no creado");
 
-        res.json({ sms: "err" });
+        res.json({ sms: "err" ,mensaje:"No se pudo crear el laboratorio"});
       }
     
     }
@@ -158,12 +152,9 @@ Laboratorios.data= async (req, res) => {
 Laboratorios.allData = async (req, res) => {
     try {
       const result = await pool.query("select * from laboratorios");
-      if (result.rows.length > 0) {
-        //console.log(result);
+   
         res.json({ resultado:result.rows,sms:"ok" });
-      } else {
-        res.json({ sms: "err" });
-      }
+    
     } catch (e) {
       console.log(e.code);
       res.json({ sms: "noconecdb" });
