@@ -1,0 +1,66 @@
+<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="register-form-link">Usuarios</a>
+							</div>
+                            <div class="col-xs-6">
+								<a href="#" id="sucursal-form-link">Sucursal</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								
+								<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="user" id="user" tabindex="1" class="form-control" placeholder="Usuario" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="nombres" id="nombres" tabindex="1" class="form-control" placeholder="nombres" value="">
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="E-mail" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Clave">
+									</div>
+									<div class="form-group">
+										<input type="date" name="fec_naci" id="fec_naci" tabindex="2" class="form-control" placeholder="Fecha de nacimiento">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="button" name="btn-usuario" id="btn-usuario" tabindex="4" class="form-control btn btn-register" value="CREAR USUARIO">
+											</div>
+										</div>
+									</div>
+								</form>
+                                <form id="sucursal-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+									<div class="form-group">
+										<input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Nombre de sucursal" value="">
+									</div>
+									<div class="form-group">
+										<input type="email" name="direccion" id="direccion" tabindex="1" class="form-control" placeholder="Dirección" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="codigo" id="codigo" tabindex="1" class="form-control" placeholder="Establecimiento" value="">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="button" name="btn-sucursal" id="btn-sucursal" tabindex="4" class="form-control btn btn-register" value="Crear sucursal">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
