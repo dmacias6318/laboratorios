@@ -164,13 +164,10 @@ Software.data= async (req, res) => {
 
 Software.allData = async (req, res) => {
     try {
-      const result = await pool.query("select * from software");
-      if (result.rows.length > 0) {
-        //console.log(result);
+      const result = await pool.query("select * from software where equipoid=$1",[req.params.id]);
+      
         res.json({ resultado:result.rows,sms:"ok" });
-      } else {
-        res.json({ sms: "err" });
-      }
+      
     } catch (e) {
       console.log(e.code);
       res.json({ sms: "noconecdb" });

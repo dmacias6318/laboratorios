@@ -46,14 +46,14 @@ module.exports = (app, autorizacion) => {
     router.post("/api/editarHard",Hardware.editar)
     router.post("/api/eliminarHard",Hardware.eliminar)
     router.get("/api/dataHard/:id",Hardware.data)
-    router.post("/api/alldataHard",Hardware.allData)
+    router.get("/api/alldataHard/:id",Hardware.allData)
 
     //Software
     router.post("/api/createSoft",Software.registrar)
     router.post("/api/editarSoft",Software.editar)
     router.post("/api/eliminarSoft",Software.eliminar)
     router.get("/api/dataSoft/:id",Software.data)
-    router.post("/api/alldataSoft",Hardware.allData)
+    router.get("/api/alldataSoft/:id",Software.allData)
 
 
 
